@@ -1,7 +1,7 @@
 module.exports = {
     config: {
         name: 'share',
-        description: 'Creates an Embed with a Link to Allow Server Screenshare in the Channel You are Currently in',
+        description: 'Creates an Embed with a Link to Allow Server Screenshare in the Voice Channel You are Currently in',
         aliases: ['screenshare', 'sr'],
         main: true,
     },
