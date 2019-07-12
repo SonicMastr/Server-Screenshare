@@ -14,6 +14,7 @@ module.exports = {
 		await exec('npm install');
 		msg.edit('Successfully Updated to the Latest Version!');
 		m.channel.stopTyping();
-		server.loadCMDs();
+        let promise = server.loadCMDs();
+		m.channel.send(promise);
 	},
 };
