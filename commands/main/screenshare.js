@@ -12,7 +12,6 @@ module.exports = {
         const chanName = voice.name;
         const guildIcon = voice.guild.icon;
         const voiceID = voice.id;
-        console.log(guildIcon);
         const embed = new server.embed.MessageEmbed();
         embed.setAuthor(`Screenshare Link For Channel: ${chanName} `, m.author.avatarURL());
         embed.setDescription(`[Screenshare](https://discordapp.com/channels/${guild}/${voiceID})`);

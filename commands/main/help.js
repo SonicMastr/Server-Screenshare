@@ -45,7 +45,6 @@ module.exports = {
 			embed.setDescription(`\nYou can send \`${server.prefix}help [command name]\` to get info on a specific command!`);
 			embed.setColor('0000FF'); // same green as below, just in hex
 			const newCmds = Array.from(commands);
-			console.log(commands);
 			let com = [];
 			let uti = [];
 			let msc = [];
