@@ -1,10 +1,9 @@
 ﻿module.exports = async (server, m) => {
+    if (!m.content.startsWith(server.prefix)) return;
     if (m.author.bot) return;
     if (m.channel.type === 'dm' && !m.content.startsWith(`${server.prefix}help`)) return;
     let args = m.content.slice(server.prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
-
-    if (!m.content.startsWith(server.prefix)) return;
     let commandfile = server.commands.get(cmd) || server.commands.get(server.aliases.get(cmd));
     if (commandfile) {
         if (commandfile.config.owner) {
