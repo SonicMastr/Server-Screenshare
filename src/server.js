@@ -3,6 +3,7 @@ const { prefix, token, ownerID, DBLAPI } = require('../config.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const os = require('os-utils');
+const DBL = require('dblapi.js');
 
 class Server extends Discord.Client {
     constructor(options) {
@@ -19,6 +20,7 @@ class Server extends Discord.Client {
         this.hook = new Discord.WebhookClient('550178643041583105', 'VnHF1yYzAvCRc7-qvflAWW60u92_oGryrUTrG5GTpHtEAkL2Fw1uTYYabCrMPrXNCsZ7');
         //Other Stuff
         this.embed = Discord;
+        this.dbl = new DBL(`${DBLAPI}`, this);
 
         this._init();
     };
@@ -48,6 +50,14 @@ class Server extends Discord.Client {
                 let eName = file.split('.')[0];
                 if (eName === 'ready') {
                     this.once(eName, evt.bind(null, this));
+                    continue;
+                }
+                if (eName === 'posted') {
+                    this.dbl.on(eName, evt.bind(null, this));
+                    continue;
+                }
+                if (eName === 'error') {
+                    this.dbl.on(eName, evt.bind(null, this));
                     continue;
                 }
                 this.on(eName, evt.bind(null, this));
