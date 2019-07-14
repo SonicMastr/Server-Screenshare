@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
-const { prefix, token, ownerID } = require('../config.json');
+const { prefix, token, ownerID, DBLAPI } = require('../config.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const os = require('os-utils');
+const DBL = require('dblapi.js');
 
 class Server extends Discord.Client {
     constructor(options) {
@@ -19,6 +20,7 @@ class Server extends Discord.Client {
         this.hook = new Discord.WebhookClient('550178643041583105', 'VnHF1yYzAvCRc7-qvflAWW60u92_oGryrUTrG5GTpHtEAkL2Fw1uTYYabCrMPrXNCsZ7');
         //Other Stuff
         this.embed = Discord;
+        this.dbl = new DBL(`${DBLAPI}`, this);
 
         this._init();
     };
@@ -73,6 +75,12 @@ class Server extends Discord.Client {
     async _init() {
         process.on('unhandledRejection', console.error);
         process.on('uncaughtException', console.error);
+        this.dbl.on('posted', () => {
+            console.log('Server count posted!');
+        });       
+        this.dbl.on('error', e => {
+            console.log(`Oops! ${e}`);
+        });
         this._loadEvents();
         this.loadCMDs();
         await this.login(token).catch(this.error);

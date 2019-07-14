@@ -18,6 +18,7 @@
   "homepage": "https://github.com/SonicMastr/Server-Screenshare#readme",
   "dependencies": {
     "chalk": "^2.4.2",
+    "dblapi.js": "^2.3.0",
     "discord.js": "github:discordjs/discord.js",
     "os-utils": "0.0.14"
   }
