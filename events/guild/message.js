@@ -10,5 +10,6 @@
             if (m.author.id !== `${server.ownerID}`) return m.reply('You can\'t do that!').then(msg => { msg.delete(5000); });
         }
         commandfile.run(server, m, args);
+        server.info('Ran Command');
     }
 }
