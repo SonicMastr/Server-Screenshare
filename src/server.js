@@ -50,14 +50,17 @@ class Server extends Discord.Client {
                 let eName = file.split('.')[0];
                 if (eName === 'ready') {
                     this.once(eName, evt.bind(null, this));
+                    this.info(`Loaded Event: ${eName}`);
                     continue;
                 }
                 if (eName === 'posted') {
                     this.dbl.on(eName, evt.bind(null, this));
+                    this.info(`Loaded Event: ${eName}`);
                     continue;
                 }
                 if (eName === 'error') {
                     this.dbl.on(eName, evt.bind(null, this));
+                    this.info(`Loaded Event: ${eName}`);
                     continue;
                 }
                 this.on(eName, evt.bind(null, this));
