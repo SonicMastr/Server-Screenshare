@@ -52,6 +52,14 @@ class Server extends Discord.Client {
                     this.once(eName, evt.bind(null, this));
                     continue;
                 }
+                if (eName === 'posted') {
+                    this.dbl.on(eName, evt.bind(null, this));
+                    continue;
+                }
+                if (eName === 'error') {
+                    this.dbl.on(eName, evt.bind(null, this));
+                    continue;
+                }
                 this.on(eName, evt.bind(null, this));
                 this.info(`Loaded Event: ${eName}`);
             }
