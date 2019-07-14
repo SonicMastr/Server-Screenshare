@@ -52,11 +52,19 @@ class Server extends Discord.Client {
                     this.once(eName, evt.bind(null, this));
                     continue;
                 }
+                if (eName === 'posted') {
+                    this.dbl.on(eName, evt.bind(null, this));
+                    continue;
+                }
+                if (eName === 'error') {
+                    this.dbl.on(eName, evt.bind(null, this));
+                    continue;
+                }
                 this.on(eName, evt.bind(null, this));
                 this.info(`Loaded Event: ${eName}`);
             }
         }
-        ['client', 'guild', 'shard'].forEach(a => load(a));
+        ['client', 'guild', 'shard', 'dbl'].forEach(a => load(a));
         this.info('All Events Successfully loaded', true);
     };
     //Console Logging
@@ -75,12 +83,6 @@ class Server extends Discord.Client {
     async _init() {
         process.on('unhandledRejection', console.error);
         process.on('uncaughtException', console.error);
-        this.dbl.on('posted', () => {
-            console.log('Server count posted!');
-        });       
-        this.dbl.on('error', e => {
-            console.log(`Oops! ${e}`);
-        });
         this._loadEvents();
         this.loadCMDs();
         await this.login(token).catch(this.error);
