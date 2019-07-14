@@ -79,7 +79,7 @@ class Server extends Discord.Client {
 
         console.log(new Date().toLocaleTimeString(), `[${chalk.whiteBright('Info')}]:`, chalk.whiteBright(info));
     };
-
+    //Initialize Bot
     async _init() {
         process.on('unhandledRejection', console.error);
         process.on('uncaughtException', console.error);
