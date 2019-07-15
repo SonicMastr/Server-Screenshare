@@ -1,4 +1,4 @@
-let lastTime = 0
+let lastTime = 0;
 module.exports = (server, id) => {
     server.warning(`Shard ${id} Lost Connection. Reconnecting...`);
     if(Date.now() - lastTime > 60000) {
