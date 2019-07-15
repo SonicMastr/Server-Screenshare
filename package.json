@@ -20,7 +20,7 @@
     "chalk": "^2.4.2",
     "dblapi.js": "^2.3.0",
     "discord.js": "github:discordjs/discord.js",
-    "os-utils": "0.0.14",
+    "os-utils": "github:oscmejia/os-utils",
     "ws": "^7.1.0"
   }
 }
