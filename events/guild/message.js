@@ -1,6 +1,5 @@
 ﻿module.exports = async (server, m) => {
     if (!m.content.startsWith(server.prefix)) return;
-    server.info('Ran Command');
     if (m.author.bot) return;
     if (m.channel.type === 'dm' && !m.content.startsWith(`${server.prefix}help`)) return;
     let args = m.content.slice(server.prefix.length).trim().split(/ +/g);
