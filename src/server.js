@@ -3,7 +3,6 @@ const { prefix, token, ownerID, DBLAPI } = require('../config.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const os = require('os-utils');
-const DBL = require('dblapi.js');
 
 class Server extends Discord.Client {
     constructor(options) {
@@ -20,7 +19,6 @@ class Server extends Discord.Client {
         this.hook = new Discord.WebhookClient('550178643041583105', 'VnHF1yYzAvCRc7-qvflAWW60u92_oGryrUTrG5GTpHtEAkL2Fw1uTYYabCrMPrXNCsZ7');
         //Other Stuff
         this.embed = Discord;
-        this.dbl = new DBL(`${DBLAPI}`, this);
 
         this._init();
     };
@@ -53,21 +51,11 @@ class Server extends Discord.Client {
                     this.info(`Loaded Event: ${eName}`);
                     continue;
                 }
-                if (eName === 'posted') {
-                    this.dbl.on(eName, evt.bind(null, this));
-                    this.info(`Loaded Event: ${eName}`);
-                    continue;
-                }
-                if (eName === 'error') {
-                    this.dbl.on(eName, evt.bind(null, this));
-                    this.info(`Loaded Event: ${eName}`);
-                    continue;
-                }
                 this.on(eName, evt.bind(null, this));
                 this.info(`Loaded Event: ${eName}`);
             }
         }
-        ['client', 'guild', 'shard', 'dbl'].forEach(a => load(a));
+        ['client', 'guild', 'shard'].forEach(a => load(a));
         this.info('All Events Successfully loaded', true);
     };
     //Console Logging
