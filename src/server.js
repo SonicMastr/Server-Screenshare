@@ -88,7 +88,7 @@ class Server extends Discord.Client {
         process.on('uncaughtException', console.error);
         this._loadEvents();
         this.loadCMDs();
-        await this.login(token).catch(this.error);
+        this.login(token).catch(this.error);
         this.info(this.ws.shards.size);
     };
 
