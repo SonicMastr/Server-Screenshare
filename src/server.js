@@ -66,9 +66,10 @@ class Server extends Discord.Client {
                 this.on(eName, evt.bind(null, this));
                 this.info(`Loaded Event: ${eName}`);
             }
-        }
+        };
         ['client', 'guild', 'shard', 'dbl'].forEach(a => load(a));
         this.info('All Events Successfully loaded', true);
+        return ('Loaded All Events');
     };
     //Console Logging
     error(error) {
