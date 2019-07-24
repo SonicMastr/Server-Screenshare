@@ -1,2 +1,2 @@
 const Server = require('./src/server');
-new Server( { shardCount: 3, totalShardCount: 3 } );
+new Server( { shardCount: 4, totalShardCount: 4 } );
