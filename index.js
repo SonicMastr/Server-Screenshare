@@ -1,2 +1,2 @@
 const Server = require('./src/server');
-new Server();
+new Server({ messageSweepInterval: 600000 });

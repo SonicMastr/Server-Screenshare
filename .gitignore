@@ -61,3 +61,7 @@ typings/
 .next
 config.json
 .eslintrc.json
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/Server-Screenshare.iml

@@ -23,6 +23,6 @@
     "discord.js": "github:discordjs/discord.js",
     "erlpack": "^0.1.2",
     "os-utils": "github:oscmejia/os-utils",
-    "ws": "^7.1.0"
+    "ws": "^7.1.2"
   }
 }
