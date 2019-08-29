@@ -83,13 +83,16 @@ class Server extends Discord.Client {
 
         console.log(new Date().toLocaleTimeString(), `[${chalk.whiteBright('Info')}]:`, chalk.whiteBright(info));
     };
+    _login() {
+        this.login(token).catch(this.error);
+    }
     //Initialize Bot
     async _init() {
         process.on('unhandledRejection', console.error);
         process.on('uncaughtException', console.error);
         this._loadEvents();
         this.loadCMDs();
-        this.login(token).catch(this.error);
+        this._login();
         this.info(this.ws.shards.size);
     };
 
