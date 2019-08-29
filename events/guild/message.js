@@ -7,7 +7,7 @@
     let commandfile = server.commands.get(cmd) || server.commands.get(server.aliases.get(cmd));
     if (commandfile) {
         if (commandfile.config.owner) {
-            if (m.author.id !== `${server.ownerID}`) return m.reply('You can\'t do that!').then(msg => { msg.delete({ timeout: 5000 }); });
+            if (m.author.id !== `${server.ownerID}`) return;
         }
         commandfile.run(server, m, args);
         server.info('Ran Command');
