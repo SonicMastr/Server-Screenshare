@@ -6,10 +6,9 @@ module.exports = {
 	    owner: true,
     },
 	run: async (server, m, args) => {
-		const msg = await m.channel.send('Restarting...').then(msg => {
-			await server.destroy();
-			server._login();
-			msg.edit(`Up and running again`);
-		});
+		const msg = await m.channel.send('Restarting...');
+		await server.destroy();
+		server._login();
+		msg.edit(`Up and running again`);
 	},
 };
