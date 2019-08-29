@@ -1,4 +1,4 @@
-const { token } = require('../config.json');
+const { token } = require('../../config.json');
 module.exports = {
     config: {
         name: 'res',
