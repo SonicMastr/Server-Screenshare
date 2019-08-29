@@ -1,4 +1,4 @@
-const util = require('util');
+const { token } = require('../config.json');
 module.exports = {
     config: {
         name: 'res',
@@ -8,7 +8,7 @@ module.exports = {
 	run: async (server, m, args) => {
 		const msg = await m.channel.send('Restarting...');
 		await server.destroy();
-		server._login();
+		server.login(token);
 		msg.edit(`Up and running again`);
 	},
 };
