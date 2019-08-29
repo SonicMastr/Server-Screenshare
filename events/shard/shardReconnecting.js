@@ -4,7 +4,6 @@ module.exports = (server, id) => {
     if(Date.now() - lastTime > 60000) {
         server.hook.send('', {
             'username': 'Server Screenshare',
-            'avatarURL': server.user.avatarURL(),
             'embeds': [{
                 'color': 16777215,
                 'timestamp': new Date(),
