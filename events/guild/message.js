@@ -1,6 +1,5 @@
 ﻿module.exports = (server, m) => {
-    if (!m.content.startsWith(server.prefix)) return;
-    if (m.author.bot) return;
+    if (!m.content.startsWith(server.prefix) || m.author.bot) return;
     if (m.channel.type === 'dm' && !m.content.startsWith(`${server.prefix}help`)) return;
     let args = m.content.slice(server.prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
