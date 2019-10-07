@@ -10,8 +10,9 @@ module.exports = {
 		if(args[0]) {
 			const name = args[0].toLowerCase();
 			const command = commands.get(name) || commands.find(c => c.config.aliases && c.config.aliases.includes(name));
-			if (!command) {
-				return m.reply('that\'s not a valid command!');
+			if (!command) return m.reply('that\'s not a valid command!');
+			if (command.config.owner) {
+				if (m.author.id !== ff.ownerID) return;
 			}
 
 			const embed = new server.embed.MessageEmbed();
