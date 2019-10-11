@@ -1,4 +1,6 @@
 ﻿module.exports = (server) => {
-    server.user.setActivity('sshelp');
+    setInterval(function() {
+        server.user.setActivity('sshelp');
+	}, 120000);
     server.info(`Logged in and Ready on ${server.readyAt}`, true);
 }
