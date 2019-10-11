@@ -1,5 +1,5 @@
 module.exports = (server, g) => {
-    server.info('Joined Server: ' + g.name)
+    server.info('Left Server: ' + g.name)
     server.hook.send('', {
 		'username': 'Server Screenshare',
 		'avatarURL': server.user.avatarURL(),
