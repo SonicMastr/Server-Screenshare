@@ -5,7 +5,7 @@ module.exports = {
         aliases: ['screenshare', 'sr'],
         main: true,
     },
-    run: async (server, m, args) => {
+    run: async (server, m) => {
         const voice = m.member.voice.channel;
         if(!voice) return m.reply('You are not in a Voice Channel');
         const guild = voice.guild.id;
@@ -13,11 +13,11 @@ module.exports = {
         const guildIcon = voice.guild.icon;
         const voiceID = voice.id;
         const embed = new server.embed.MessageEmbed();
-        embed.setAuthor(`Screenshare Link For Channel: ${chanName} `, m.author.avatarURL());
-        embed.setDescription(`[Screenshare](https://discordapp.com/channels/${guild}/${voiceID})`);
-        embed.setThumbnail(`https://cdn.discordapp.com/icons/${guild}/${guildIcon}.webp`);
-        embed.setFooter(voice.guild.name);
-        embed.setColor('39e6d4');
+        embed.setAuthor(`Screenshare Link For Channel: ${chanName} `, m.author.avatarURL())
+        .setDescription(`[Screenshare](https://discordapp.com/channels/${guild}/${voiceID})`)
+        .setThumbnail(`https://cdn.discordapp.com/icons/${guild}/${guildIcon}.webp`)
+        .setFooter(voice.guild.name)
+        .setColor('39e6d4');
         m.channel.send({ embed });
     },
 };
