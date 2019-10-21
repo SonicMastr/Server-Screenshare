@@ -11,14 +11,14 @@ module.exports = {
         let seconds = Math.floor(server.os.processUptime());
         let total = Math.ceil(server.os.totalmem() * 100) / 100;
         let used = process.memoryUsage().rss
-        embed.setAuthor('Server Screenshare Stats');
-        embed.setThumbnail(server.user.avatarURL());
-		embed.setDescription('Results');
-		embed.setColor('3099F0');
-        embed.addField('**Uptime**', time.formatSec(seconds), true);
-        embed.addField('**Resource Usage**', `Memory Used: ${calc.convertBytes(used)}\nTotal Memory: ${calc.convertMBytes(total)}`, true);
-        embed.addField('**Shard Pings**', ping(server), true);
-        embed.addField('**Discord Stats**', `${server.guilds.size} Guilds\n${server.users.size} Users\n${server.ws.shards.size} Shards`, true);
+        embed.setAuthor('Server Screenshare Stats')
+        .setThumbnail(server.user.avatarURL())
+		.setDescription('Results')
+		.setColor('3099F0')
+        .addField('**Uptime**', time.formatSec(seconds), true)
+        .addField('**Resource Usage**', `Memory Used: ${calc.convertBytes(used)}\nTotal Memory: ${calc.convertMBytes(total)}`, true)
+        .addField('**Shard Pings**', ping(server), true)
+        .addField('**Discord Stats**', `${server.guilds.size} Guilds\n${server.users.size} Users\n${server.ws.shards.size} Shards`, true);
 		return m.channel.send({ embed });
     }
 };

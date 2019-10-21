@@ -14,10 +14,10 @@ module.exports = {
 			let evaled = eval(code);
 			if (typeof evaled !== 'string') {evaled = require('util').inspect(evaled);}
 			const embed = new server.embed.MessageEmbed();
-		    embed.setAuthor('Server Screenshare Eval', server.user.avatarURL());
-		    embed.setDescription('Eval');
-			embed.setColor('ffb8b8');
-			embed.addField('**EVAL**', '```js\n' + clean(evaled) + '```');
+		    embed.setAuthor('Server Screenshare Eval', server.user.avatarURL())
+		    .setDescription('Eval')
+			.setColor('ffb8b8')
+			.addField('**EVAL**', '```js\n' + clean(evaled) + '```');
 			m.channel.send(embed);
 		}
 		catch (err) {
