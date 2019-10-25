@@ -22,7 +22,7 @@ class Server extends Discord.Client {
         //Other Stuff
         this.embed = Discord;
         this.dbl = new DBL(DBLAPI, this);
-        this.db = new DB(this, DBAPI);
+        this.db = new DB("599319551737593866", DBAPI);
 
         this._init();
     };
