@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: 'stats',
         description: 'Returns the Stats of the Bot',
-        util: true;
+        util: true
     },
     run: async (server, m) => {
         const embed = new server.embed.MessageEmbed();
