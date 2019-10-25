@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
-const { prefix, token, ownerID, DBLAPI } = require('../config.json');
+const { prefix, token, ownerID, DBLAPI, DBAPI } = require('../config.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const os = require('os-utils');
 const DBL = require('dblapi.js');
+const DB = require('discordbotsgg');
 
 class Server extends Discord.Client {
     constructor(options) {
@@ -21,6 +22,7 @@ class Server extends Discord.Client {
         //Other Stuff
         this.embed = Discord;
         this.dbl = new DBL(DBLAPI, this);
+        this.db = new DB(this, DBAPI);
 
         this._init();
     };
