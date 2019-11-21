@@ -1,2 +1,2 @@
 const Server = require('./src/server');
-new Server({ messageCacheMaxSize: 1, messageCacheLifetime: 1, messageSweepInterval: 300, shardCount: 4, totalShardCount: 4, disableEvents:["VOICE_STATE_UPDATE", "TYPING_START", "MESSAGE_DELETE_BULK", "WEBHOOKS_UPDATE", "PRESENCE_UPDATE"] });
+new Server({ messageCacheMaxSize: 0, shardCount: 4, totalShardCount: 4, disableEvents:["VOICE_STATE_UPDATE", "TYPING_START", "MESSAGE_DELETE_BULK", "WEBHOOKS_UPDATE", "PRESENCE_UPDATE"] });
